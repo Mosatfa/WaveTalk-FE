@@ -1,0 +1,182 @@
+.chat-sidebar {
+    height: 100%;
+    width: 64px;
+    background-color: #070B1D;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .chat-sidebar-logo {
+        font-size: 24px;
+        color: #fff;
+        display: block;
+        text-align: center;
+        padding: 8px;
+        margin-bottom: 32px;
+    }
+
+    .chat-sidebar-menu {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 16px 0px;
+
+        a {
+            display: block;
+            text-align: center;
+            padding: 12px 8px;
+            font-size: 16px;
+            color: #5B5C70;
+            transition: color .15s ease-in-out;
+            position: relative;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &.active {
+                box-shadow: inset 4px 0 0 0 #fff;
+                color: #fff;
+            }
+
+            &::before {
+                content: attr(data-title);
+                position: absolute;
+                top: 50%;
+                left: calc(105% - 16px);
+                transform: translateY(-50%);
+                font-size: 14px;
+                padding: 6px 12px;
+                background-color: rgba(0, 0, 0, 0.8);
+                border-radius: 4px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .15s ease-in-out;
+            }
+
+            &:hover::before {
+                left: 105%;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .chat-sidebar-profile {
+            margin-top: auto;
+            position: relative;
+
+            .profile-toggle {
+                background-color: transparent;
+                outline: transparent;
+                border: none;
+                width: 40px;
+                height: 40px;
+                margin: 0 auto;
+                display: block;
+
+                &.active-profile {
+                    border-radius: 50%;
+                    border: 3px solid #fff;
+                }
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 50% !important;
+                }
+            }
+
+            .profile-dropdown {
+                position: absolute;
+                bottom: 100%;
+                left: 50px;
+                background-color: #fff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 4px;
+                padding: 4px 0px;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    padding: 8px 12px;
+                    text-decoration: none;
+                    font-size: 14px;
+
+                    i {
+                        margin-right: 8px;
+                    }
+
+                    &::before {
+                        content: '';
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+
+                    &:hover {
+                        background-color: #F0F1F3;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}
+
+@media (max-width : 767px) {
+    .sideBar-sm{
+        display: none;
+    }
+    .chat-sidebar {
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        height: 48px;
+        z-index: 999;
+
+        .chat-sidebar-logo {
+            display: none;
+        }
+
+        .chat-sidebar-menu {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 8px;
+
+            a {
+                width: 60px;
+                height: 100%;
+
+                &.active {
+                    // border-radius: 8px;
+                    background-color: rgba(253, 253, 253, 0.2);
+                    box-shadow: inset 0 0 0 0 #fff;
+                }
+                &::before {
+                    display: none;
+                }
+            }
+
+            .chat-sidebar-profile {
+                margin-top: 0;
+                .profile-toggle {
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &.active-profile {
+                        border-radius: 50%;
+                        border: 2px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+}

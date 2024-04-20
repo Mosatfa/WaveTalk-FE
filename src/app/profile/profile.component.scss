@@ -1,0 +1,313 @@
+.profile-container {
+    height: 100%;
+    width: 700px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .profile {
+        .bx-img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+
+            img {
+                border: 4px solid #EAEBEE;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            .btn-upload {
+                border: none;
+                outline: transparent;
+                background-color: transparent;
+
+                i {
+                    position: absolute;
+                    top: 90%;
+                    left: 365px;
+                    transform: translate(-50%, -50%);
+                    background-color: var(--main-color);
+                    color: #fff;
+                    padding: 8px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .bx-info {
+            border: 1px solid #EAEBEE;
+            background-color: #F8F9FD;
+            border-radius: 4px;
+            padding: 34px 16px 16px;
+            margin-top: 64px;
+
+            label {
+                color: var(--main-color);
+                font-weight: 500;
+            }
+
+
+            .user {
+                margin-bottom: 15px;
+                width: 100%;
+
+                h4,
+                input {
+                    font-size: 20px;
+                    font-weight: 300;
+                }
+
+                textarea {
+                    resize: none;
+                }
+
+                .readonly {
+                    background-color: #F8F9FD;
+                }
+
+            }
+
+            .btns-profile {
+                // display: none;
+
+                button {
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    outline: transparent;
+                    text-transform: capitalize;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                }
+
+                .btn-cancle {
+                    border: 1px solid #fff;
+                    background-color: #fff;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                }
+
+                .btn-save {
+                    border: 1px solid var(--main-color);
+                    background-color: var(--main-color);
+                    color: #fff;
+                }
+            }
+        }
+
+        .bx-account {
+            margin-top: 64px;
+
+            .change-password {
+                h3 {
+                    font-size: 22px;
+                    font-weight: 500
+                }
+
+                .btn-change-password {
+                    margin-top: 8px;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    outline: transparent;
+                    text-transform: capitalize;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                    color: #fff;
+                    background-color: var(--main-color);
+                    border: 1px solid var(--main-color);
+                }
+            }
+
+            .remove {
+                margin-top: 64px;
+
+                h3 {
+                    font-size: 14px;
+                    font-weight: 500
+                }
+            }
+        }
+
+
+    }
+}
+
+.modal {
+    .modal-header {
+        button {
+            box-shadow: none;
+        }
+    }
+
+    .modal-body {
+        .form-group {
+            .text-field {
+                margin-bottom: 8px;
+
+                label {
+                    margin-bottom: 5px;
+                    font-weight: 500;
+                    display: flex;
+
+                    p {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-cancel {
+        outline: transparent;
+        background-color: transparent;
+        border: none;
+        padding: 6px 12px;
+        margin: 4px;
+        font-size: 16px;
+        color: #212529;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+.model-uplaod-image {
+    .avatars {
+        display: flex;
+        justify-content: center;
+
+        .avatar-female,
+        .avatar-male {
+            padding: 8px;
+            background-color: #F8F9FD;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .btn-select {
+                border: none;
+                outline: transparent;
+                background-color: transparent;
+                display: flex;
+
+                &:focus {
+                    img {
+                        border: 4px solid var(--main-color);
+                    }
+                }
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 0px 0px 10px 8px;
+            }
+        }
+    }
+
+
+
+    .upload-image {
+        width: 207px;
+        height: 197px;
+        background-color: #F8F9FD;
+        padding: 32px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn-upload {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px dashed var(--main-color);
+            border-radius: 50%;
+            padding: 80px;
+            background-color: #fff;
+            color: var(--main-color);
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width : 767px) {
+    .profile-container {
+        width: 100%;
+        padding: 16px;
+        padding-bottom: 64px;
+
+        .profile {
+            .bx-img {
+                .btn-upload {
+                    i {
+                        left: 60%;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .model-uplaod-image {
+        .avatars {
+            .avatar-female,
+            .avatar-male {
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin: 0px 0px 10px 8px;
+                }
+            }
+        }
+    
+        .upload-image {
+            width: 168px;
+            height: 156px;
+            .btn-upload {
+                padding: 40px;
+            }
+        }
+    }
+
+    .modal {
+    
+        .modal-body {
+            .form-group {
+                .text-field {
+                    margin-bottom: 8px;
+                    input {
+                        box-shadow: none;
+                    }
+                    label {
+                        margin-bottom: 5px;
+                        font-weight: 500;
+                        display: flex;
+                        font-size: 14px;
+    
+                        p {
+                            font-weight: 300;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
+    
+
+}

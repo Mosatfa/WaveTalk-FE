@@ -1,0 +1,33 @@
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chat-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    .conversation-container {
+        width: calc(100% - 350px) ;
+    }
+}
+
+@media (max-width : 767px) {
+    .list-container {
+        width: 100% !important;
+    }
+    .conversation-container {
+        display: none;
+        width: 100% !important;
+    }
+}
+
+
+

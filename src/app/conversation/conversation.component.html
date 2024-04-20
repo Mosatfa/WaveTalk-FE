@@ -1,0 +1,64 @@
+<div class="conversation">
+  <div class="conversation-header">
+    <div class="conversation-info">
+      <button (click)="returnBack()" class="btn-back"><i class="fa-solid fa-arrow-left"></i></button>
+      <div class="bx-img">
+        <img
+          src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="picture-profile">
+      </div>
+      <div class="conversation-details">
+        <h4 class="user-name">Mostafa Maged</h4>
+        <span class="user-status">online</span>
+      </div>
+    </div>
+    <div class="conversation-btn">
+      <button (click)="toggleDropMenu()" class="btn-dropmenu"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      <ul *ngIf="toggle" class="conversation-menu">
+        <li>Create Group</li>
+        <li>Clear Chat</li>
+        <li class="text-danger">Block</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="conversation-main">
+    <ul class="conversation-wrapper">
+      <li class="conversation-item me">
+        <!-- <div class="conversation-item-side">
+          <img
+            src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="picture-profile">
+        </div> -->
+        <div class="conversation-item-content">
+          <div class="conversation-item-wrapper">
+            <div class="conversation-item-box">
+              <div class="conversation-item-text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, esse.</p>
+              </div>
+              <span class="message-time">12:30Am</span>
+              <div class="conversation-item-dropmenu">
+                <button (click)="toggleDropMenuMessage()" class="btn-item-memu"><i
+                    class="fa-solid fa-ellipsis-vertical"></i></button>
+                <ul *ngIf="toggleMessage" class="dropmenu-message">
+                  <li class="text-danger">Delete</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="conversation-form">
+    <div class="form-group">
+      <textarea autosize class="input-message" rows="1" [maxRows]="5" placeholder="Write your message..."></textarea>
+      <div class="bx-icon-form">
+        <button class="btn-emoje"><i class="fa-regular fa-face-smile"></i></button>
+        <button class="btn-paperclip-"><i class="fa-solid fa-paperclip"></i></button>
+      </div>
+    </div>
+    <button class="btn-submit" type="submit"><i class="fa-regular fa-paper-plane"></i></button>
+  </div>
+</div>

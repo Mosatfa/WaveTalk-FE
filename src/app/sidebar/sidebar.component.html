@@ -1,0 +1,14 @@
+<aside class="chat-sidebar" [ngClass]="{'sideBar-sm': hideSideBar}">
+    <a href="#" class="chat-sidebar-logo"><i class="fa-solid fa-wave-square"></i></a>
+    <ul class="chat-sidebar-menu">
+        <li><a routerLink="messages" routerLinkActive="active" data-title="Messages"><i class="fa-solid fa-comment"></i></a></li>
+        <li class="chat-sidebar-profile">
+            <a routerLink="profile"  data-title="Profile">
+                <button  type="button" class="profile-toggle" routerLinkActive="active-profile">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="">
+                </button>
+            </a>
+        </li>
+    </ul>
+</aside>
