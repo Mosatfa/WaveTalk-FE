@@ -262,6 +262,7 @@
 
     .model-uplaod-image {
         .avatars {
+
             .avatar-female,
             .avatar-male {
                 img {
@@ -273,41 +274,35 @@
                 }
             }
         }
-    
+
         .upload-image {
             width: 168px;
             height: 156px;
+
             .btn-upload {
                 padding: 40px;
             }
         }
     }
 
-    .modal {
-    
-        .modal-body {
-            .form-group {
-                .text-field {
-                    margin-bottom: 8px;
-                    input {
-                        box-shadow: none;
-                    }
-                    label {
-                        margin-bottom: 5px;
-                        font-weight: 500;
-                        display: flex;
-                        font-size: 14px;
-    
-                        p {
-                            font-weight: 300;
-                            margin-bottom: 0;
-                        }
-                    }
-                }
+    .text-field {
+        margin-bottom: 8px;
+
+        input {
+            box-shadow: none;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            display: flex;
+            font-size: 14px;
+
+            p {
+                font-weight: 300;
+                margin-bottom: 0;
             }
         }
-    
     }
-    
 
 }
