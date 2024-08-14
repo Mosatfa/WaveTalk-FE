@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaQueryService } from '../media-query.service';
+import { MediaQueryService } from '../services/media-query.service';
 
 @Component({
   selector: 'app-sidebar',

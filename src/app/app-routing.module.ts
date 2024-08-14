@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChatsComponent } from './chats/chats.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ConversationComponent } from './conversation/conversation.component';
+import { NotificationtComponent } from './notificationt/notificationt.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'messages', pathMatch: 'full' },
   { path: 'messages', component: ChatsComponent ,children:[
+    { path: 'notificationts', component: NotificationtComponent },
     { path: 'add', component: ContactsComponent },
     { path: ":id", component: ConversationComponent }
   ]

@@ -2,167 +2,35 @@
     <div class="header">
         <div class="title d-flex justify-content-between align-items-center">
             <h2 class="title-page">Messages</h2>
-            <button (click)="btnNotificationt()" class="btn-notification">
+            <button (click)="selected()" (click)="readNotifications()" routerLink="notificationts"
+                routerLinkActive="active-notification" class="btn-notification">
                 <i class="fa-regular fa-bell"></i>
+                <span *ngIf="notification"></span>
             </button>
-            <ul class="notifications" *ngIf="toggleNotificationt">
-                <h2 class="h5">Notifications</h2>
-                <hr>
-                <li class="d-flex align-items-end">
-                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="">
-                    <div class="details">
-                        <h3>james Aldroio</h3>
-                        <div class="btn-notifications">
-                            <button class="btn-accept">Confirm</button>
-                            <button class="btn btn-outline-danger ms-2">Delete</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
         </div>
         <div class="search">
             <div class="form-search">
                 <input type="text" class="" placeholder="Search...">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <button (click)="selectedChat()" class="btn-add">
-                <a routerLink="add" ><i routerLinkActive="active" class="fa-solid fa-user-plus"></i></a>
+            <button (click)="selected()" class="btn-add">
+                <a routerLink="add"><i routerLinkActive="active" class="fa-solid fa-user-plus"></i></a>
             </button>
         </div>
     </div>
     <div class="list-chats">
         <ul>
-            <li routerLinkActive="active-chat">
-                <a (click)="selectedChat()" [routerLink]="['/messages',1]" >
+            <li *ngFor="let friend of friendsList"  routerLinkActive="active-chat">
+                <a (click)="selected()" [routerLink]="['/messages',friend._id]">
                     <div class="block">
                         <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            <img [src]="friend.profile_Picture||'https://scontent.fcai20-6.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_p100x100&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=Cz0lTg2_DCEQ7kNvgE4_Nfy&_nc_ht=scontent.fcai20-6.fna&oh=00_AYAtY9gq145PwqVLT3y-LzCcFSvhrz1cr6amxwmLKHRZag&oe=66E2037A'"
                                 alt="">
+                            <span *ngIf="friend.status == 'online'" class="user-status"></span>
                         </div>
                         <div class="chat-details">
                             <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
+                                <h4 class="text-capitalize">{{friend.userName}}</h4>
                                 <p>02.30Pm</p>
                             </div>
                             <div class="messages">
@@ -174,167 +42,9 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
 
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="block">
-                        <div class="bx-image">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                        <div class="chat-details">
-                            <div class="head">
-                                <h4>Mostafa Maged</h4>
-                                <p>02.30Pm</p>
-                            </div>
-                            <div class="messages">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <b>5</b>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
+
+
         </ul>
     </div>
 </div>

@@ -15,7 +15,7 @@ body {
 }
 
 .content-side {
-    &{
+    & {
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -54,81 +54,26 @@ body {
                 border-radius: 50%;
                 color: #000;
                 transition: all 0.15s ease-in-out;
-
-                &:hover {
-                    color: #000;
-                    background-color: #E7ECEF;
-                }
-
-                &:focus {
-                    color: #000;
-                    background-color: #E7ECEF;
-
-                    i {
-                        color: var(--main-color);
-                    }
+                position: relative;
+                span {
+                    position: absolute;
+                    top: 10px;
+                    right: 7px;
+                    height: 5px !important;
+                    width: 5px !important;
+                    border-radius: 50%;
+                    margin-right: 2px;
+                    background-color: red;
                 }
             }
 
-            .notifications {
-                list-style-type: none;
-                position: absolute;
-                top: 50%;
-                left: 100%;
-                width: 320px;
-                background-color: #fff;
-                padding: 16px;
-                border-radius: 8px;
-                border-top-left-radius: 0px;
-                z-index: 99;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            .active-notification {
 
-                hr {
-                    border: 0;
-                    height: 1px;
-                    width: 100%;
-                    background-color: #ccc;
-                    margin: 15px 0px 5px;
-                }
+                color: #000 !important;
+                background-color: #E7ECEF !important;
 
-                img {
-                    width: 55px;
-                    height: 55px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                }
-
-                h3 {
-                    font-weight: 500;
-                    font-size: 16px;
-                    margin-bottom: 8px;
-                    margin-left: 1px;
-                }
-
-                .details {
-                    margin-top: 12px;
-                    margin-left: 15px;
-
-                    .btn-notifications {
-                        button {
-                            padding: 2px 8px;
-                            font-size: 14px;
-                            border-radius: 4px;
-                        }
-
-                        .btn-accept {
-                            color: var(--main-color);
-                            border: 1px solid var(--main-color);
-                            background-color: transparent;
-                            outline: transparent;
-                            transition: all 0.15s ease-in-out;
-
-                            &:hover {
-                                color: #fff;
-                                background-color: var(--main-color);
-                            }
-                        }
-                    }
+                i {
+                    color: var(--main-color);
                 }
             }
         }
@@ -216,12 +161,29 @@ body {
                 background-color: #F0F2F5;
             }
 
-            .bx-image img {
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                object-fit: cover;
+            .bx-image {
+                position: relative;
+
+                .user-status {
+                    content: "";
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 10px !important;
+                    width: 10px !important;
+                    border-radius: 50%;
+                    margin-right: 2px;
+                    background-color: #0CB97F;
+                }
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
             }
+
 
             .chat-details {
                 width: 100%;
@@ -284,9 +246,12 @@ body {
 
 @media (max-width : 767px) {
     .content-side {
-        &{
+        & {
             max-width: 100% !important;
         }
+    }
+    .list-chats {
+        padding-bottom: 50px;
     }
 
     .notifications {
@@ -294,12 +259,8 @@ body {
         left: 10% !important;
         border-radius: 8px !important;
         border-top-right-radius: 0px !important;
-
     }
 }
-
-
-
 
 
 /* width */

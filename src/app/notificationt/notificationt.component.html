@@ -1,0 +1,22 @@
+<div class="notifications shadow">
+    <div class="d-flex align-items-center">
+        <button (click)="returnBack()" class="btn-back mb-2"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="header">
+            <h2 class="h3">Notifications</h2>
+        </div>
+    </div>
+
+    <ul *ngIf="notifications" class="notification">
+        <li *ngFor="let notic of notifications"  class="d-flex align-items-end">
+            <img [src]="notic?.profile_Picture ||'https://scontent.fcai20-6.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_p100x100&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=BmsOX3Sy9RcQ7kNvgFEa0U9&_nc_ht=scontent.fcai20-6.fna&oh=00_AYDgBtFee3NlrCVxSjTt6tsDLSDN5KkSiOtJRkockg_ckQ&oe=66DDD6BA'"
+                alt="">
+            <div class="details">
+                <h3 class="text-capitalize mb-1"><span class="d-block fw-normal">{{notic?.typeNotific}}</span>{{notic?.userName}}</h3>
+                <div class="btn-notifications">
+                    <button (click)="confirmRequest(notic?.friendId)"  class="btn btn-accept">Confirm</button>
+                    <button (click)="cancelRequest(notic?.friendId)" class="btn btn-delete ms-2">Delete</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

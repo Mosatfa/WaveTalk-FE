@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -10,7 +10,9 @@ import { ConversationComponent } from './conversation/conversation.component';
 import { ChatListsComponent } from './chat-lists/chat-lists.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './auth.interceptor';
+import { NotificationtComponent } from './notificationt/notificationt.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     ChatListsComponent,
     ContactsComponent,
     ProfileComponent,
+    NotificationtComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AutosizeModule,
     ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

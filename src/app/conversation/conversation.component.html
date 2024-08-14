@@ -4,12 +4,13 @@
       <button (click)="returnBack()" class="btn-back"><i class="fa-solid fa-arrow-left"></i></button>
       <div class="bx-img">
         <img
-          src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          [src]="conversationInfo.profile_Picture ||'https://scontent.fcai20-6.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_p100x100&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=Cz0lTg2_DCEQ7kNvgE4_Nfy&_nc_ht=scontent.fcai20-6.fna&oh=00_AYAtY9gq145PwqVLT3y-LzCcFSvhrz1cr6amxwmLKHRZag&oe=66E2037A'"
           alt="picture-profile">
       </div>
       <div class="conversation-details">
-        <h4 class="user-name">Mostafa Maged</h4>
-        <span class="user-status">online</span>
+        <h4 class="user-name text-capitalize">{{conversationInfo.userName}}</h4>
+        <span *ngIf="conversationInfo.status == 'online'" class="user-status-online">{{conversationInfo.status}}</span>
+        <!-- <span *ngIf="conversationInfo.status == 'offline'" class="user-status-offline">{{conversationInfo.status}}</span> -->
       </div>
     </div>
     <div class="conversation-btn">
@@ -22,43 +23,53 @@
     </div>
   </div>
 
-  <div class="conversation-main">
-    <ul class="conversation-wrapper">
-      <li class="conversation-item me">
-        <!-- <div class="conversation-item-side">
-          <img
-            src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="picture-profile">
-        </div> -->
-        <div class="conversation-item-content">
-          <div class="conversation-item-wrapper">
-            <div class="conversation-item-box">
-              <div class="conversation-item-text">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, esse.</p>
-              </div>
-              <span class="message-time">12:30Am</span>
-              <div class="conversation-item-dropmenu">
-                <button (click)="toggleDropMenuMessage()" class="btn-item-memu"><i
-                    class="fa-solid fa-ellipsis-vertical"></i></button>
-                <ul *ngIf="toggleMessage" class="dropmenu-message">
-                  <li class="text-danger">Delete</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
+  <!-- <div class="conversation-board">
+    <div class="message my-message">
+        <p>Hi <br> <span>12:35</span></p>
+    </div>
+    <div class="message friend-message">
+        <p>Hi <br> <span>12:35</span></p>
+    </div>
+    <div class="message my-message">
+        <p>Lorem ipsum dolor sit amet. <br> <span>12:35</span></p>
+    </div>
+    <div class="message friend-message">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br> <span>12:35</span></p>
+    </div>
+    <div class="message my-message">
+        <p>Lorem ipsum dolor sit. <br> <span>12:35</span></p>
+    </div>
+    <div class="message friend-message">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sed libero mollitia perferendis minus odit?
+            <br> <span>12:35</span>
+        </p>
+    </div>
+    <div class="message my-message">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> <span>12:35</span></p>
+    </div>
+    <div class="message friend-message">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis? <br> <span>12:35</span></p>
+    </div>
+</div> -->
+  <div class="conversation-board">
+    <div class="message" *ngFor="let message of messages"
+      [ngClass]="{'my-message': message.sender === userId, 'friend-message': message.sender !== userId}">
+      <p>
+        {{ message.content }} <br>
+        <span>{{ message.createdAt | date: 'shortTime' }}</span>
+      </p>
+    </div>
   </div>
 
   <div class="conversation-form">
     <div class="form-group">
-      <textarea autosize class="input-message" rows="1" [maxRows]="5" placeholder="Write your message..."></textarea>
+      <textarea [(ngModel)]="content" autosize class="input-message" rows="1" [maxRows]="5"
+        placeholder="Write your message..."></textarea>
       <div class="bx-icon-form">
         <button class="btn-emoje"><i class="fa-regular fa-face-smile"></i></button>
         <button class="btn-paperclip-"><i class="fa-solid fa-paperclip"></i></button>
       </div>
     </div>
-    <button class="btn-submit" type="submit"><i class="fa-regular fa-paper-plane"></i></button>
+    <button (click)="sendMessage()" class="btn-submit" type="submit"><i class="fa-regular fa-paper-plane"></i></button>
   </div>
 </div>
