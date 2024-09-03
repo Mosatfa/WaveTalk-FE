@@ -51,12 +51,22 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis? <br> <span>12:35</span></p>
     </div>
 </div> -->
-  <div class="conversation-board">
+  <div #chatContainer class="conversation-board">
     <div class="message" *ngFor="let message of messages"
       [ngClass]="{'my-message': message.sender === userId, 'friend-message': message.sender !== userId}">
       <p>
         {{ message.content }} <br>
-        <span>{{ message.createdAt | date: 'shortTime' }}</span>
+        <span class="d-flex justify-content-end m-0">
+          <span class="message-time">{{ message.createdAt | date: 'shortTime' }}</span>
+          <i [ngClass]="{
+            'd-none': message.sender !== userId,
+            'fa-check': message.status === 'Sent',
+            'fa-check-double': message.status === 'Delivered' || message.status === 'Seen',
+            'sent-message': message.status === 'Sent',
+            'delivered-message': message.status === 'Delivered',
+            'seen-message': message.status === 'Seen'
+          }" class="fa-solid ms-1"></i>
+        </span>
       </p>
     </div>
   </div>
@@ -73,3 +83,4 @@
     <button (click)="sendMessage()" class="btn-submit" type="submit"><i class="fa-regular fa-paper-plane"></i></button>
   </div>
 </div>
+

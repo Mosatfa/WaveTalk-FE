@@ -149,40 +149,53 @@ body {
             overflow-x: hidden;
             padding: 16px;
         }
-    
+
         .message {
             display: flex;
             width: 100%;
             margin: 8px 0px 8px;
-    
+
             p {
                 max-width: 65%;
                 text-align: left;
-                padding: 12px;
+                padding: 10px;
                 border-radius: 10px;
                 border-top-right-radius: 0px;
-                font-size: 0.9em;
-    
-                span {
+                font-size: 1ز5em;
+
+                .message-time {
                     display: block;
                     margin-bottom: 5px;
-                    font-size: 0.85em;
+                    font-size: 0.75em;
                     opacity: 0.5;
                     text-align: right;
                 }
+
+                .sent-messsage{
+                    opacity: 0.5;
+                }
+                .delivered-message {
+                    opacity: 1;
+                }
+                .seen-message{
+                    opacity: 1;
+                    color: deepskyblue !important;
+                }
             }
         }
-    
+
         .my-message {
             justify-content: flex-end;
-            p{
+
+            p {
                 background-color: var(--main-color);
                 color: #fff;
             }
         }
-    
+
         .friend-message {
             justify-content: flex-start;
+
             p {
                 background-color: #fff;
                 border-radius: 10px;
@@ -284,5 +297,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
-

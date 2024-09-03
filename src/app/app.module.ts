@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { NotificationtComponent } from './notificationt/notificationt.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,9 @@ import { NotificationtComponent } from './notificationt/notificationt.component'
     AutosizeModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
